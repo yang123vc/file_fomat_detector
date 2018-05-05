@@ -1,12 +1,12 @@
 # compilation
 CC = gcc
-CFLAGS = -Walls -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
 # default rule
 NAME = file_type
 
 # directories
-SRCDIR = src	
+SRCDIR = src
 OBJDIR = objects
 INCDIR = includes
 
@@ -15,9 +15,15 @@ INC = file.h
 SRC = \
 	 main.c \
 	 analysis.c\
-	 mp4.c
+	 mp4.c \
+	 raw.c \
+	 png.c \
+	 wmv.c \
+	 deb.c \
+	 rar.c \
+	 3pg.c \
+	 gif.c
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
-OBJ_DIRS = $(dir $(objs))
 
 # prefix
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
@@ -31,7 +37,10 @@ $(NAME): build $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 build:
-	@mkdir $(OBJDIR)
+	@mkdir -p $(OBJDIR)
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@$(CC) -c -o $@ $< -I$(INCDIR) $(CFLAGS)
 
 clean:
 	@rm -rf $(OBJDIR)
@@ -39,5 +48,4 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 
-re:
-	fclean all
+re: fclean all

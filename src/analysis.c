@@ -2,6 +2,7 @@
 
 int		analysis(FILE *file)
 {
+	/*
 	if (mp3(file))
 		return (1);
 	else if (bmp(file))
@@ -38,7 +39,10 @@ int		analysis(FILE *file)
 		return (1);
 	else if  lzip(file)
 		return (1);
-	else if (gif(file))
+	*/
+	if (gif(file))
+		return (1);
+	else if (_3pg(file))
 		return (1);
 	else if (rar(file))
 		return (1);

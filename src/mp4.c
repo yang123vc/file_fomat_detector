@@ -8,7 +8,7 @@
 
 int		mp4(FILE *file)
 {
-	unsigned char	buffer[11];
+	unsigned char	buffer[8];
 	int				flag;
 
 	flag = 0;
