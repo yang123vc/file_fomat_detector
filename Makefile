@@ -22,7 +22,25 @@ SRC = \
 	 deb.c \
 	 rar.c \
 	 3pg.c \
-	 gif.c
+	 gif.c \
+	 lzip.c \
+	 amazon_kindle.c \
+	 jar.c \
+	 java_class.c \
+	 avi.c \
+	 wav.c \
+	 rpm_package.c \
+	 ico.c \
+	 pdf.c \
+	 jpg.c \
+	 tiff.c \
+	 bzh.c \
+	 zip.c \
+	 tarz.c \
+	 exe.c \
+	 bmp.c \
+	 mp3.c
+
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
 # prefix
